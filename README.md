@@ -1,9 +1,12 @@
 # Sitio web ROCA
 
-Sitio estático (HTML autocontenido) servido con nginx. Dominio: `roca.piantinihost.com`.
+Sitio estático servido con nginx. Dominio: `roca.piantinihost.com`.
+
+- `index.html`: página (plantilla + runtime, renderiza en el navegador).
+- `assets/`: scripts, fuentes e imágenes extraídos del export de Claude.
 
 ## Despliegue en Dokploy
-- Build Type: `Dockerfile`, Build Path: `/`
+- Build Type: `Dockerfile`, Docker File: `Dockerfile`, Context: `.`
 - Puerto del contenedor: `80`
 
 ## Prueba local
