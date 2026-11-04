@@ -1,5 +1,8 @@
 (function () {
   var D = {
+    'Últimas publicaciones': 'Latest posts', 'Síganos en Instagram': 'Follow us on Instagram',
+    'Novedades, eventos y publicaciones de la Firma en @jjrocaasociados': 'News, events and posts from the Firm at @jjrocaasociados',
+    'Publicación de Instagram de JJ Roca & Asociados': 'Instagram post by JJ Roca & Asociados',
     'Nuestro éxito y crecimiento se deben a nuestra mejor carta de presentación:': 'Our success and growth are owed to our best letter of introduction:',
     'nuestros clientes': 'our clients',
     'MIEMBRO EXCLUSIVO DE GLOBALAW · REPÚBLICA DOMINICANA': 'EXCLUSIVE GLOBALAW MEMBER · DOMINICAN REPUBLIC',
