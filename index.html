@@ -2174,17 +2174,17 @@ class Component extends DCLogic {
       const words = [];
       [0, 1].forEach(k => list.forEach((w, i) => {
         words.push(E('span', { key: k + '-' + i, style: { display: 'inline-flex', alignItems: 'center', gap: '0.35em', paddingRight: '0.35em' } }, w,
-          E('span', { style: { width: '0.16em', height: '0.16em', background: red ? '#fff' : '#C60000', display: 'inline-block', opacity: red ? 0.6 : 0.9 } })));
+          E('span', { style: { width: '0.16em', height: '0.16em', background: dense ? (red ? '#fff' : '#C60000') : '#1B3F73', display: 'inline-block', opacity: dense ? (red ? 0.6 : 0.9) : (red ? 0.7 : 0.45) } })));
       }));
-      return E('div', { key: r, style: { whiteSpace: 'nowrap', width: 'max-content', fontFamily: 'var(--roca-serif)', fontWeight: 800, fontSize: fs, lineHeight: 1.02, letterSpacing: '-0.02em', color: red ? 'rgba(198,0,0,0.85)' : 'transparent', WebkitTextStroke: red ? '0' : '1.2px rgba(255,255,255,' + (0.1 + (r % 3) * 0.04) + ')', animation: an ? ((r % 2 ? 'roca-mqr ' : 'roca-mq ') + (90 + r * 18) + 's linear infinite') : 'none', willChange: 'transform' } }, words);
+      return E('div', { key: r, style: dense ? { whiteSpace: 'nowrap', width: 'max-content', fontFamily: 'var(--roca-serif)', fontWeight: 800, fontSize: fs, lineHeight: 1.02, letterSpacing: '-0.02em', color: red ? 'rgba(198,0,0,0.85)' : 'transparent', WebkitTextStroke: red ? '0' : '1.2px rgba(255,255,255,' + (0.1 + (r % 3) * 0.04) + ')', animation: an ? ((r % 2 ? 'roca-mqr ' : 'roca-mq ') + (90 + r * 18) + 's linear infinite') : 'none', willChange: 'transform' } : { whiteSpace: 'nowrap', width: 'max-content', fontFamily: 'var(--roca-serif)', fontWeight: 800, fontSize: fs, lineHeight: 1.02, letterSpacing: '-0.02em', color: 'transparent', WebkitTextStroke: '1.5px rgba(255,255,255,' + (red ? 0.6 : 0.42 + (r % 3) * 0.06) + ')', animation: an ? ((r % 2 ? 'roca-mqr ' : 'roca-mq ') + (90 + r * 18) + 's linear infinite') : 'none', willChange: 'transform' } }, words);
     });
     const kids = [
       E('div', { key: 'rows', style: { position: 'absolute', left: '-10%', right: '-10%', top: dense ? '50%' : '-8%', display: 'flex', flexDirection: 'column', transform: dense ? 'translateY(-50%) rotate(-7deg)' : 'rotate(-7deg)', transformOrigin: 'center' } }, lines),
-      E('div', { key: 'glow', style: { position: 'absolute', right: '-15%', bottom: '-40%', width: '80vw', height: '80vw', background: 'radial-gradient(circle, rgba(198,0,0,0.35) 0%, rgba(198,0,0,0) 60%)' } }),
-      E('div', { key: 'vig', style: { position: 'absolute', inset: 0, background: 'radial-gradient(120% 90% at 70% 50%, rgba(7,8,11,0) 30%, rgba(7,8,11,0.85) 100%)' } }),
+      E('div', { key: 'glow', style: { position: 'absolute', right: '-15%', bottom: '-40%', width: '80vw', height: '80vw', background: dense ? 'radial-gradient(circle, rgba(198,0,0,0.35) 0%, rgba(198,0,0,0) 60%)' : 'radial-gradient(circle, rgba(27,63,115,0.16) 0%, rgba(27,63,115,0) 60%)' } }),
+      E('div', { key: 'vig', style: { position: 'absolute', inset: 0, background: dense ? 'radial-gradient(120% 90% at 70% 50%, rgba(7,8,11,0) 30%, rgba(7,8,11,0.85) 100%)' : 'radial-gradient(120% 90% at 70% 45%, rgba(11,30,54,0) 40%, rgba(8,22,40,0.55) 100%)' } }),
       E('div', { key: 'grain', style: { position: 'absolute', inset: 0, backgroundImage: "url('assets/grain.svg')", opacity: 0.05 } })
     ];
-    return E('div', { style: { position: 'absolute', inset: 0, overflow: 'hidden', background: '#07080B', pointerEvents: 'none', contain: 'strict' } }, kids);
+    return E('div', { style: { position: 'absolute', inset: 0, overflow: 'hidden', background: dense ? '#07080B' : 'linear-gradient(135deg,#0B1E36 0%,#123056 55%,#1B4272 100%)', pointerEvents: 'none', contain: 'strict' } }, kids);
   }
   areasForm = ['Administrativo y Regulatorio', 'Banca y Finanzas', 'Mercado de Valores', 'Competencia', 'Corporativo', 'Protección de Datos y Privacidad', 'Litigios y Solución Alternativa de Controversias', 'Energía, Minería y Medio Ambiente', 'Fiscal', 'Inversión Extranjera', 'Franquicias', 'Zonas Francas', 'Propiedad Intelectual', 'Laboral y Seguridad Social', 'Fusiones y Adquisiciones', 'Pro Bono', 'Inmobiliario', 'Reestructuración e Insolvencia', 'Start Ups', 'Telecomunicaciones, Medios y Tecnología', 'Turismo'];
   enviarContacto = (e) => {
