@@ -4,6 +4,7 @@ Sitio estático servido con nginx. Dominio: `roca.piantinihost.com`.
 
 - `index.html`: página (plantilla + runtime, renderiza en el navegador).
 - `assets/`: scripts, fuentes e imágenes extraídos del export de Claude.
+- `guias/`: PDFs de guías y publicaciones (`<clave>.pdf` y `<clave>_en.pdf`: inv, fo, bol, foa).
 - `docker/`: sincronización de Instagram (cron dentro del contenedor).
 - `tools/`: scripts para convertir un export nuevo de Claude (`sh tools/build.sh export.html`).
 

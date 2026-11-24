@@ -4,13 +4,10 @@ d=sys.argv[1]; p=os.path.join(d,'index.html'); s=open(p,encoding='utf-8').read()
 if 'data-screen-label="Recursos · Instagram"' in s: sys.exit('ya aplicado')
 IG='https://www.instagram.com/jjrocaasociados/'
 # 1) Marcado: bloque nuevo al final de la sección Multimedia
-anchor='''          </article>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-  <section data-screen-label="Recursos · Alertas"'''
-assert s.count(anchor)==1
+import re as _re
+m=_re.search(r'          </article>\n        </sc-for>\n      </div>\n    </div>\n  </section>\n  <section data-screen-label="Recursos · (Alertas|Novedades)"',s)
+assert m, 'no se encontró el final de Multimedia'
+anchor=m.group(0); SIG=m.group(1)
 icon='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1" fill="currentColor"></circle></svg>'
 block='''          </article>
         </sc-for>
@@ -43,7 +40,7 @@ block='''          </article>
       </div>
     </div>
   </section>
-  <section data-screen-label="Recursos · Alertas"'''.replace('IGURL',IG).replace('ICON',icon)
+  <section data-screen-label="Recursos · SIGX"'''.replace('SIGX',SIG).replace('IGURL',IG).replace('ICON',icon)
 s=s.replace(anchor,block)
 # el bloque Multimedia tenía padding-bottom 0: el nuevo bloque aporta el espacio inferior
 # 2) Lógica: cargar ig.json al montar
