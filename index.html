@@ -2386,9 +2386,9 @@ class Component extends DCLogic {
       h: { a: msg === 'Su firma' || msg === 'Nuestra causa', b: msg === 'Un solo equipo', c: msg === 'Desde 1998' || msg === '28 años' },
       articulos: this.arts().map((x, i) => ({ ...x, open: () => this.setState({ art: i }) })),
       artOpen: this.state.art != null, art: this.state.art != null ? this.arts()[this.state.art] : { p: [] }, closeArt: () => this.setState({ art: null }), stopArt: (e) => e.stopPropagation(),      multimedia: [
-        { tipo: 'VIDEO', t: 'Hacer negocios en la República Dominicana', d: '12 MIN', img: 'v5-mm-1b', pos: '62% 50%' },
-        { tipo: 'PODCAST', t: 'Propiedad intelectual en el Caribe', d: '35 MIN', img: 'v5-mm-2', pos: '62% 45%' },
-        { tipo: 'WEBINAR', t: 'Responsabilidad penal de las personas jurídicas', d: '60 MIN', img: 'v5-mm-3', pos: '40% 50%' }
+        { tipo: 'VIDEO', t: 'Hacer negocios en la República Dominicana', d: '12 MIN', img: 'v5-mm-1b', src: 'assets/mm-negocios-rd.jpg', pos: '80% 50%' },
+        { tipo: 'PODCAST', t: 'Propiedad intelectual en el Caribe', d: '35 MIN', img: 'v5-mm-2', src: 'assets/mm-mapa-caribe.jpg', pos: '62% 45%' },
+        { tipo: 'WEBINAR', t: 'Responsabilidad penal de las personas jurídicas', d: '60 MIN', img: 'v5-mm-3', src: 'assets/mm-justicia.jpg', pos: '78% 50%' }
       ],
       hdr: (h0 => ({ ...h0, t2c: pg === 'recursos' ? '#C60000' : '#E8B6B6', t2s: pg === 'recursos' ? 'normal' : 'italic', t2w: pg === 'recursos' ? 800 : 600 }))(hdrs[pg] || hdrs.firma),
       nav: items.map(([k, t]) => ({ t, go: this.go(k), color: pg === k ? '#fff' : '#B6BFCB', line: pg === k ? '#C60000' : 'transparent' })),
